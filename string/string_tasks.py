@@ -64,3 +64,23 @@ for i in range(len(message)):
 
 s = input()
 print(s[:s.find('h')] + s[s.rfind('h'):s.find('h'):-1] + s[s.rfind('h'):])
+
+# Задача 6 Standard American Convention
+# На вход программе подаётся натуральное число.
+# Напишите программу, которая вставляет в
+# заданное число запятые в соответствии со стандартным
+# американским соглашением о запятых в больших числах.
+
+def number_separator(num):
+    string = ''
+    count = 0
+    for i in num[::-1]:
+        if count < 3:
+            string += i
+            count+=1
+        elif count == 3:
+            string+=',' + i
+            count = 1
+    return string[::-1]
+
+print(number_separator(input()))
