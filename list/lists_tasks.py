@@ -47,3 +47,27 @@ if flag == 1:
     print('ДА')
 else:
     print('НЕТ')
+    
+# Задача 4 Упаковка дубликатов
+# На вход программе подается строка текста, содержащая символы.
+# Напишите программу, которая упаковывает последовательности одинаковых
+# символов заданной строки в подсписки.
+# Пример: Ввод = w w w o r l d g g g g
+# Вывод = [['w', 'w', 'w'], ['o'], ['r'], ['l'], ['d'], ['g', 'g', 'g', 'g']]
+
+char_list = list()
+main_list = list()
+
+for char in input().split():
+    if not char_list:
+        char_list.append(char)
+    else:
+        if char_list[-1] == char:
+            char_list.append(char)
+        else:
+            main_list.append(char_list)
+            char_list = list()
+            char_list.append(char)
+if char_list:
+    main_list.append(char_list)
+print(main_list)
